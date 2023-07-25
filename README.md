@@ -25,8 +25,25 @@ The .csv files includes:
 • I began by exploring the provided e-commerce sales data, which includes information 
 about product orders, customer visits, and revenue generated.
 
-• Cleaned data by handling missing values, inconsistent data formats, identify duplicates, inaccurate data 
-and ensuring data integrity.
+• Reviewed the schema and data in the "all_sessions" table to understand its structure, including columns like "city," "country," 
+"transaction_revenue," and any other relevant information.
+
+	- Missing data for Total Transaction Revenue in the all_sessions table - 81 rows of data available for 536 rows 
+	of distinct product in the all_sessions table.
+
+	- Zero duplicate for the product "sku" (Primary Key) in the products table, which means it is the fact table for the dataset. 
+
+	- Zero duplicate for the "productsku" (Primary Key & Foreign Key) in the sales_by_sku table, which is one of the dim tables for the dataset. 
+	There are 462 distinct products in this table.
+
+	- Zero duplicate for the "productsku" (Primary Key & Foreign Key) in the sales_report table, which is one of the dim tables for 
+	the dataset. There are 454 distinct products in this table.
+
+	- 389 distinct matches between the "productsku" column in the "all_sessions" table and the "sku" column in the "products" table.
+
+• Cleaned data by handling missing values, inconsistent data formats, identify duplicates, inaccurate data and ensuring data integrity.
+
+
 
 ### Analyzing Revenue by City and Country:
 • Used SQL queries to group data by city and country to calculate the total revenue generated from each location.
