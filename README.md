@@ -7,6 +7,7 @@ top-selling products, revenue generated from different regions, and any patterns
 
 ## Process
 ### Part 1: Loading CSV Files into Database
+
 I created a new Postgre database called e-commerce and set up tables for each .csv file provided for this project. 
 
 The .csv files include: 
