@@ -4,21 +4,7 @@
 ### Question 1: Which cities and countries have the highest level of transaction revenues on the site?**
 
 
-### SQL Queries:
-CREATE OR REPLACE VIEW highest_revenue_cities_countries_view AS
-SELECT country, city,
-    SUM(totalTransactionRevenue) AS totalRevenueInMillions
-FROM all_sessions
-WHERE totalTransactionRevenue IS NOT NULL
-  AND city <> 'Unknown'
-  AND country <> 'Unknown'
-GROUP BY country, city
-ORDER BY totalRevenueInMillions DESC;
-
-SELECT *
-FROM highest_revenue_cities_countries_view
-ORDER BY totalRevenueInMillions DESC
-LIMIT 10;
+#### SQL Queries:
 
 
 Answer:
@@ -27,23 +13,10 @@ Answer:
 
 
 
-**Question 2: What is the average number of products ordered from visitors in each city and country?**
+### Question 2: What is the average number of products ordered from visitors in each city and country?**
 
 
-SQL Queries:
-
-
-
-Answer:
-
-
-
-
-
-**Question 3: Is there any pattern in the types (product categories) of products ordered from visitors in each city and country?**
-
-
-SQL Queries:
+#### SQL Queries:
 
 
 
@@ -53,10 +26,10 @@ Answer:
 
 
 
-**Question 4: What is the top-selling product from each city/country? Can we find any pattern worthy of noting in the products sold?**
+### Question 3: Is there any pattern in the types (product categories) of products ordered from visitors in each city and country?**
 
 
-SQL Queries:
+#### SQL Queries:
 
 
 
@@ -66,9 +39,22 @@ Answer:
 
 
 
-**Question 5: Can we summarize the impact of revenue generated from each city/country?**
+### Question 4: What is the top-selling product from each city/country? Can we find any pattern worthy of noting in the products sold?**
 
-SQL Queries:
+
+#### SQL Queries:
+
+
+
+Answer:
+
+
+
+
+
+### Question 5: Can we summarize the impact of revenue generated from each city/country?**
+
+#### SQL Queries:
 
 
 
