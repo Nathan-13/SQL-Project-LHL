@@ -22,6 +22,7 @@ LIMIT 10;
 
 
 Answer:
+![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/2a96cae2-aa77-4f2f-9a74-9768c7dd5ad4)
 
 
 
