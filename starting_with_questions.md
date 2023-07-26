@@ -21,12 +21,12 @@
 
 #### SQL Queries:
 
+![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/2847c739-686f-4b89-8874-32cf56dc6fff)
 
 
-Answer:
+#### Answer:
 
-
-
+![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/6314a9c6-06e6-43b5-aa87-317c9a29e0f7)
 
 
 ### Question 3: Is there any pattern in the types (product categories) of products ordered from visitors in each city and country?**
