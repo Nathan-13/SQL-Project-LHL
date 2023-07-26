@@ -85,12 +85,25 @@
 
 #### SQL Queries:
 
-![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/d0a20f6b-98c3-465d-90d8-78144e528ec6)
+	CREATE VIEW ordered_products_by_category_view AS
+	SELECT al.country, al.city, al.v2productcategory,
+	    	COUNT(*) AS total_orders,
+	    	ROUND(AVG(p.orderedquantity), 2) AS avg_ordered_quantity
+	FROM all_sessions al
+	JOIN products p ON al.productsku = p.sku
+	WHERE al.country <> 'Unknown'
+	    	AND al.city <> 'Unknown'
+	GROUP BY al.country, al.city, al.v2productcategory;
+	
+	SELECT *
+	FROM average_ordered_quantity_view
+	ORDER BY avg_ordered_quantity DESC;
 
 
 #### Answer:
 
-![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/4bddec89-0ba5-40fd-aac5-cb810fb62a15)
+![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/c7e518ae-a42a-4157-82a6-5e3e13ce7270)
+
 
 
 
