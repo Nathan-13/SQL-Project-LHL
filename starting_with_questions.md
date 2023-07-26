@@ -57,24 +57,24 @@
 
 
 
-When I look at the best-selling items, I notice that certain products such as the "Google Kick Ball," "Google 22 oz Water Bottle," and "YouTube Custom Decals" are consistently in demand in various locations worldwide. This indicates that these products may have a wide-ranging appeal and could be a component of a global marketing plan.
+When I look at the best-selling items, I notice that certain products such as the "Google Kick Ball," "Google 22 oz Water Bottle," and "YouTube Custom Decals" are consistently in demand in various locations worldwide. This indicates that these products have a wide-ranging appeal and could be a component of a global marketing plan.
 
 ### Question 5: Can we summarize the impact of revenue generated from each city/country?**
 
 #### SQL Queries:
 
-WITH regional_revenue_cte AS (
-    SELECT al.country, al.city,
-        SUM(an.unit_price * an.units_sold) AS total_regional_revenue,
-        al.fullvisitorid
-    FROM all_sessions al
-    LEFT JOIN analytics an ON al.fullvisitorid = an.fullvisitorid
-	WHERE al.city <> 'Unknown' AND an.units_sold IS NOT NULL
-    GROUP BY al.country, al.city, al.fullvisitorid
-)
-SELECT country, city, total_regional_revenue, fullvisitorid
-FROM regional_revenue_cte
-ORDER BY total_regional_revenue DESC;
+	WITH regional_revenue_cte AS (
+   		SELECT al.country, al.city,
+        		SUM(an.unit_price * an.units_sold) AS total_regional_revenue,
+        		al.fullvisitorid
+    		FROM all_sessions al
+    		LEFT JOIN analytics an ON al.fullvisitorid = an.fullvisitorid
+		WHERE al.city <> 'Unknown' AND an.units_sold IS NOT NULL
+    		GROUP BY al.country, al.city, al.fullvisitorid
+	)
+	SELECT country, city, total_regional_revenue, fullvisitorid
+	FROM regional_revenue_cte
+	ORDER BY total_regional_revenue DESC;
 
 Answer:
 
