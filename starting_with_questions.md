@@ -57,6 +57,8 @@
 
 
 
+When I look at the best-selling items, I notice that certain products such as the "Google Kick Ball," "Google 22 oz Water Bottle," and "YouTube Custom Decals" are consistently in demand in various locations worldwide. This indicates that these products may have a wide-ranging appeal and could be a component of a global marketing plan.
+
 ### Question 5: Can we summarize the impact of revenue generated from each city/country?**
 
 #### SQL Queries:
