@@ -63,10 +63,9 @@ level of cities and countries, revealing that more prosperous regions tend to ge
 incomplete data columns, for example, TotalTransactionRevenue, missing names of cities and countries, sales tax, 
 and absent a unique identifier in the analytics table.
 
-• Establishing Meaningful Relationships: Identifying significant and valuable connections between different tables in the dataset was challenging.
+• Establishing Relationships: Identifying significant and valuable connections between different tables in the dataset was challenging. Ensuring seamless integration is crucial for obtaining a comprehensive view of customer behavior and business performance.
 
-• Limited Data Dimensions: Certain insights may require additional data dimensions, such as customer demographics 
-or marketing channels.
+• Limited Data Dimensions: Dataset lack crucial information like about website visit and product sold, payment methods used, or details about promotional campaigns that were active during the transactions. 
 
 ## Future Goals
 
