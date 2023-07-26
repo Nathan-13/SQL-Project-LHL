@@ -1,11 +1,24 @@
-Answer the following questions and provide the SQL queries used to find the answer.
+## Answer the following questions and provide the SQL queries used to find the answer.
 
     
-**Question 1: Which cities and countries have the highest level of transaction revenues on the site?**
+### Question 1: Which cities and countries have the highest level of transaction revenues on the site?**
 
 
-SQL Queries:
+### SQL Queries:
+CREATE OR REPLACE VIEW highest_revenue_cities_countries_view AS
+SELECT country, city,
+    SUM(totalTransactionRevenue) AS totalRevenueInMillions
+FROM all_sessions
+WHERE totalTransactionRevenue IS NOT NULL
+  AND city <> 'Unknown'
+  AND country <> 'Unknown'
+GROUP BY country, city
+ORDER BY totalRevenueInMillions DESC;
 
+SELECT *
+FROM highest_revenue_cities_countries_view
+ORDER BY totalRevenueInMillions DESC
+LIMIT 10;
 
 
 Answer:
