@@ -32,18 +32,18 @@
 #### SQL Queries:
 
 -- Calculate the average number of products ordered for each city and country
-	CREATE VIEW average_ordered_quantity_view AS
-	SELECT al.country, al.city, 
-		ROUND(AVG(p.orderedquantity), 2) AS avg_ordered_quantity
-	FROM all_sessions al
-	JOIN products p ON al.productsku = p.sku
-	WHERE al.country <> 'Unknown'
-	    	AND al.city <> 'Unknown'
-	GROUP BY al.country, al.city;
-	
-	SELECT *
-	FROM average_ordered_quantity_view
-	ORDER BY avg_ordered_quantity DESC;
+		CREATE VIEW average_ordered_quantity_view AS
+		SELECT al.country, al.city, 
+			ROUND(AVG(p.orderedquantity), 2) AS avg_ordered_quantity
+		FROM all_sessions al
+		JOIN products p ON al.productsku = p.sku
+		WHERE al.country <> 'Unknown'
+			AND al.city <> 'Unknown'
+		GROUP BY al.country, al.city;
+		
+		SELECT *
+		FROM average_ordered_quantity_view
+		ORDER BY avg_ordered_quantity DESC;
 
 
 #### Answer:
