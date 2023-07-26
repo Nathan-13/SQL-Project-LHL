@@ -48,11 +48,12 @@
 
 #### SQL Queries:
 
+![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/d0a20f6b-98c3-465d-90d8-78144e528ec6)
 
 
-Answer:
+#### Answer:
 
-
+![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/4bddec89-0ba5-40fd-aac5-cb810fb62a15)
 
 
 
