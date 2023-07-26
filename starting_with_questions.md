@@ -6,14 +6,24 @@
 
 #### SQL Queries:
 
-![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/3c33a705-fcd4-4f81-9161-996a01aacc57)
-
+	CREATE OR REPLACE VIEW highest_revenue_cities_countries_view AS
+	SELECT country, city,
+	    	SUM(totalTransactionRevenue) AS totalRevenueInMillions
+	FROM all_sessions
+	WHERE totalTransactionRevenue IS NOT NULL
+	  	AND city <> 'Unknown'
+	  	AND country <> 'Unknown'
+	GROUP BY country, city
+	ORDER BY totalRevenueInMillions DESC;
+	
+	SELECT *
+	FROM highest_revenue_cities_countries_view
+	ORDER BY totalRevenueInMillions DESC
+	LIMIT 10;
 
 #### Answer:
 
-![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/2a96cae2-aa77-4f2f-9a74-9768c7dd5ad4)
-
-
+![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/4ef4032d-40f8-4ba6-931a-d27e5e8a5fec)
 
 
 ### Question 2: What is the average number of products ordered from visitors in each city and country?**
@@ -21,12 +31,25 @@
 
 #### SQL Queries:
 
-![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/2847c739-686f-4b89-8874-32cf56dc6fff)
+-- Calculate the average number of products ordered for each city and country
+	CREATE VIEW average_ordered_quantity_view AS
+	SELECT al.country, al.city, 
+		ROUND(AVG(p.orderedquantity), 2) AS avg_ordered_quantity
+	FROM all_sessions al
+	JOIN products p ON al.productsku = p.sku
+	WHERE al.country <> 'Unknown'
+	    	AND al.city <> 'Unknown'
+	GROUP BY al.country, al.city;
+	
+	SELECT *
+	FROM average_ordered_quantity_view
+	ORDER BY avg_ordered_quantity DESC;
 
 
 #### Answer:
 
-![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/6314a9c6-06e6-43b5-aa87-317c9a29e0f7)
+![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/1d98b73a-2640-4a10-aa64-df914525e104)
+
 
 
 ### Question 3: Is there any pattern in the types (product categories) of products ordered from visitors in each city and country?**
@@ -34,12 +57,26 @@
 
 #### SQL Queries:
 
-![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/01130dcb-a5c0-4cd8-b0b1-4a310a4a541c)
+	CREATE VIEW top_selling_products_view AS
+	SELECT al.country, al.city,
+		al.v2productname AS top_selling_product,
+	    	SUM(p.orderedquantity) AS total_quantity_sold
+	FROM all_sessions al
+	JOIN products p ON al.productsku = p.sku
+	WHERE al.country <> 'Unknown'
+		AND al.city <> 'Unknown'
+	GROUP BY al.v2productname, al.country, al.city;
+	
+	
+	SELECT *
+	FROM top_selling_products_view
+	ORDER BY total_quantity_sold DESC;
 
 
 #### Answer:
 
-![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/6f727aac-1ab7-4a5e-93e0-6e805ba693a0)
+![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/e4046ffd-4174-467d-90dd-0c021b0a8353)
+
 
 
 
@@ -63,21 +100,24 @@ When I look at the best-selling items, I notice that certain products such as th
 
 #### SQL Queries:
 
-	WITH regional_revenue_cte AS (
-   		SELECT al.country, al.city,
-        		SUM(an.unit_price * an.units_sold) AS total_regional_revenue,
-        		al.fullvisitorid
-    		FROM all_sessions al
-    		LEFT JOIN analytics an ON al.fullvisitorid = an.fullvisitorid
-		WHERE al.city <> 'Unknown' AND an.units_sold IS NOT NULL
-    		GROUP BY al.country, al.city, al.fullvisitorid
-	)
-	SELECT country, city, total_regional_revenue, fullvisitorid
-	FROM regional_revenue_cte
-	ORDER BY total_regional_revenue DESC;
+	CREATE VIEW revenue_summary_view AS
+	SELECT al.country, al.city,
+		al.v2productname AS top_selling_product,
+		SUM(p.orderedquantity) AS total_quantity_sold,
+		SUM(p.orderedquantity * al.productprice) AS total_revenue
+	FROM all_sessions al
+	JOIN products p ON al.productsku = p.sku
+	WHERE al.country <> 'Unknown'
+	AND al.city <> 'Unknown'
+	GROUP BY al.country, al.city, al.v2productname;
+	
+	SELECT *
+	FROM revenue_summary_view
+	ORDER BY total_revenue DESC;
 
-Answer:
+#### Answer:
 
+![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/184955e1-1ede-4e39-9e68-2d37c4c3b7fd)
 
 
 
