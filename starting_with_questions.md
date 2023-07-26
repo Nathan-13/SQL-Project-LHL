@@ -34,48 +34,12 @@
 
 #### SQL Queries:
 
-CREATE VIEW ordered_products_by_category_view AS
-
-SELECT al.country, al.city, al.v2productcategory,
-
-	COUNT(*) AS total_orders,
-
-	ROUND(AVG(p.orderedquantity), 2) AS avg_ordered_quantity
-
-FROM all_sessions al
-
-JOIN products p ON al.productsku = p.sku
-
-WHERE al.country <> 'Unknown'
-
-	AND al.city <> 'Unknown'
-
-	AND al.v2productcategory <> 'Unknown'
-
-GROUP BY al.country, al.city, al.v2productcategory;
-
-
-SELECT *
-
-FROM ordered_products_by_category_view
-
-ORDER BY avg_ordered_quantity DESC;
+![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/01130dcb-a5c0-4cd8-b0b1-4a310a4a541c)
 
 
 #### Answer:
 
-country	city	v2productcategory	total_orders	avg_ordered_quantity
-Chile	Santiago	Home/Lifestyle/	1	15170
-United States	Kirkland	Home/Accessories/Fun/	1	15170
-Russia	Moscow	Home/Accessories/Sports & Fitness/	1	15170
-United States	Santa Clara	Home/Accessories/Sports & Fitness/	1	15170
-United States	Council Bluffs	Home/Accessories/Fun/	1	15170
-United States	San Diego	Home/Accessories/Sports & Fitness/	1	15170
-United States	Detroit	Drinkware	1	10075
-India	Gurgaon	Home/Drinkware/	1	8942
-United States	Cambridge	Home/Drinkware/	1	8942
-Brazil	Sao Paulo	Home/Accessories/Drinkware/	1	8942
-
+![image](https://github.com/Nathan-13/SQL-Project/assets/28906249/6f727aac-1ab7-4a5e-93e0-6e805ba693a0)
 
 
 
