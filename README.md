@@ -56,7 +56,17 @@ about product orders, customer visits, and revenue generated.
 • Identified the top-selling products based on revenue.
 
 ## Results
-(fill in what you discovered this data could tell you and how you used the data to answer those questions)
+• 	Upon delving into the analytics and all_sessions tables, I gained invaluable insights into visitor 
+behaviours and essential metrics like frequency, duration, product views, and engagement patterns. 
+It was observed that customers who spent more time on the site viewed more products and had more visits were, 
+in fact, less likely to make a purchase.
+
+• 	The geographical analysis of the data shows a significant impact on revenue generation, with the United States
+leading online shopping activity. Expanding our market presence to other countries necessitates implementing crucial 
+marketing strategies. Moreover, our observations have shed light on how product preferences differ based on the development 
+level of cities and countries, revealing that more prosperous regions tend to generate higher revenue.
+
+• 	
 
 ## Challenges 
 • Data Quality: Dealing with missing or inconsistent data required thorough data cleaning and validation. Also there were 
